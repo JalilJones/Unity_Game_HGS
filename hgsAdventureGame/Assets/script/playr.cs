@@ -80,6 +80,7 @@ public class playr : MonoBehaviour
             {
               Jump(); 
               doubleJump.available = false; 
+              animator.SetTrigger("DoubleJump");
             }
 
           }
@@ -90,6 +91,7 @@ public class playr : MonoBehaviour
         {
           isJumping = false; 
           doubleJump.available = true;
+          animator.SetBool("IsJumping",false);
         }
 
         if(!myController.isGrounded)
@@ -103,6 +105,7 @@ public class playr : MonoBehaviour
         if(IsIdle())
         {
            animator.SetFloat("Speed",0);
+
         }
 
     } 
@@ -155,7 +158,7 @@ public class playr : MonoBehaviour
       {
         yForce = jumpSpeed;
         isJumping = true; 
-        // Jump Animation
+        animator.SetBool("IsJumping",true);
       }
     
 }   
