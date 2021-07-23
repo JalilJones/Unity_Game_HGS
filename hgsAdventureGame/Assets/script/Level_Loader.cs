@@ -29,4 +29,9 @@ public class Level_Loader : MonoBehaviour
 
         }
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }

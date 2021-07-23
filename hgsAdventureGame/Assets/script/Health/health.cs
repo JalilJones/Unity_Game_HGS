@@ -16,7 +16,8 @@ public class health : MonoBehaviour
 
 	[Header("Refs")]
 	GameManager gameManager;
-	HealthManagr healthManagr; 
+	HealthManagr healthManagr;
+    public Level_Loader levelLoader; 
 
 
 
@@ -39,11 +40,23 @@ public class health : MonoBehaviour
     }
      public void TakeDamage(int damage)
     {
+    	print ("take damage");
     	currentHealth = Mathf.Max(0, currentHealth - damage); 
 
     	if(isPlayer)
     	{
     		healthManagr.healthText.text = "" + currentHealth;
+            if(currentHealth<=0)
+            {
+                levelLoader.LoadLevel();
+            }
+    	}
+    	else
+    	{
+    		if(currentHealth<=0)
+    		{
+    			 Destroy(gameObject);
+    		}
     	}
     }
 }

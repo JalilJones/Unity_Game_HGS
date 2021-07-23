@@ -27,7 +27,7 @@ public class playr : MonoBehaviour
 
 
     [Header ("Refrences")]
-    CharacterController myController;
+    public CharacterController myController;
     doublejump doubleJump; 
     public GameObject playerModel; 
     public Animator animator;
@@ -39,7 +39,9 @@ public class playr : MonoBehaviour
     {
         //this is how to write a print statment
         doubleJump = GetComponent<doublejump>();
-        myController = GetComponent<CharacterController>();          
+        myController = GetComponent<CharacterController>();
+        isJumping = false;
+
     }
 
     // Update is called once per frame
@@ -89,7 +91,7 @@ public class playr : MonoBehaviour
 
         if(myController.isGrounded && yForce < 0)
         {
-          isJumping = false; 
+           
           doubleJump.available = true;
           animator.SetBool("IsJumping",false);
         }

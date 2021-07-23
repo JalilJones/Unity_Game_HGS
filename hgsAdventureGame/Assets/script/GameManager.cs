@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 
     public CoinManager coinManager; 
     public HealthManagr healthManagr;
+    public CheckPoint checkPoint; 
     // Start is called before the first frame update
     void Start()
     {
